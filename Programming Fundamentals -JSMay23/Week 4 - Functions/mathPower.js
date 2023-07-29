@@ -1,3 +1,15 @@
 function mathPower(num,pow){
-    console.log(`${Math.pow(num,pow)}`);
+    let result = 1;
+    for (let i = 0; i < pow; i++) {
+        result *= num;        
+    }
+    
+    console.log(result);
 }
+
+mathPower(2,8);
+
+
+
+
+

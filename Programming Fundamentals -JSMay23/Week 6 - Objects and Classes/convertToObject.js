@@ -1,4 +1,4 @@
-function solve(jsonStr){
+function convertToObject(jsonStr) {
     let person = JSON.parse(jsonStr);
 
     for (let [key, value] of Object.entries(person)) {

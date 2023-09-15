@@ -24,8 +24,6 @@ function roadRadar(speed, road){
     } else {
         console.log(`Driving ${speed} km/h in a ${currentLimit} zone`);
     }
-
-
 }
 
 roadRadar(40, 'city')

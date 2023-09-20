@@ -6,12 +6,8 @@ function diagonalSums(arr){
         for (let j = 0; j < arr[i].length; j++) {
             if (i == j) {
                 diag1 += arr[i][j];
-
             }
             if (i == arr.length - j - 1){
-                console.log(i);
-                console.log(j);
-                console.log(diag2);
                 diag2 += arr[i][j];
             }
         }

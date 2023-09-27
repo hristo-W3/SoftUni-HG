@@ -11,24 +11,15 @@ function solve(inputs){
         if (hasWinner || counter > 8){break;}
         let [x,y] = inputs.shift().split(' ');
         
-        //console.log(isPlayerOne);
         checkPosition(x,y,board);
-        // console.log('---------');
-        // console.log(board[0][0] === playerSymbols[false]);
-        // console.log(board[1][1] === playerSymbols[false]);
-        // console.log(board[2][2] === playerSymbols[false]);
-        // console.log(playerSymbols[true]);
-        // console.log('---------');
-        //console.log((board[0][0] === board[1][1]) && (board[1][1] === board[2][2]) && (board[2][2] === playerSymbols[false]));
         checkWin(board, playerSymbols[true]);
         checkWin(board, playerSymbols[false]);
-        counter++;
+        
     }
     if (counter > 8) {
         console.log('The game ended! Nobody wins :(');
         printBoard(board);
     }
-    //printBoard(board);
 
     function checkPosition(x,y,board){
         if (board[x][y] !== 'false'){
@@ -36,6 +27,7 @@ function solve(inputs){
         } else {
             board[x][y] = playerSymbols[isPlayerOne];
             isPlayerOne = !isPlayerOne;
+            counter++;
         }
     }
 

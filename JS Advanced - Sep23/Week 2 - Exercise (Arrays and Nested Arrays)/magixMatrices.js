@@ -5,7 +5,7 @@ function solve(arr){
         let sumColOne = 0;
         let sumColTwo = 0;
 
-        for (let col = 0; col < arr[row].length; col++) {
+        for (let col = 0; col < arr.length; col++) {
             sumColOne += arr[row][col];
             sumColTwo += arr[row + 1][col];
         }

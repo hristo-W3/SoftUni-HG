@@ -7,6 +7,8 @@ function solve(inputs){
         true: 'X',
         false: 'O'
     }
+
+    // Body of the execution, iterates for as many commands there were supplied by pulling each command out of the list
     while(inputs.length > 0){
         if (hasWinner || counter > 8){break;}
         let [x,y] = inputs.shift().split(' ');
@@ -21,6 +23,9 @@ function solve(inputs){
         printBoard(board);
     }
 
+    // Check if the given position is occupied
+    // If it is taken, show error message and process the same player again
+    // If it's free, record the player marker in the corresponding cell
     function checkPosition(x,y,board){
         if (board[x][y] !== 'false'){
             console.log('This place is already taken. Please choose another!');
@@ -31,6 +36,7 @@ function solve(inputs){
         }
     }
 
+    //Check if the player has won the game
     function checkWin(board, playerMarker){
         if (((board[0][0] == board[0][1]) && (board[0][1] == board[0][2]) && (board[0][2] == playerMarker)) ||
             ((board[1][0] == board[1][1]) && (board[1][1] == board[1][2]) && (board[1][2] == playerMarker)) ||
@@ -45,6 +51,8 @@ function solve(inputs){
                 hasWinner = true;
             }
     }
+
+    //Prints the current state of the board
     function printBoard(board){
         for (let row = 0; row < 3; row++) {
             console.log(board[row].join('\t'));

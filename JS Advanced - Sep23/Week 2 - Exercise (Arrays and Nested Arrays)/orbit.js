@@ -1,8 +1,5 @@
 function orbit(arr){
-    let rows = arr[0];
-    let cols = arr[1];
-    let pointX = arr[2]
-    let pointY = arr[3];
+    let [rows,cols,pointX,pointY] = arr;
 
     let orbitMatrix = [];
 

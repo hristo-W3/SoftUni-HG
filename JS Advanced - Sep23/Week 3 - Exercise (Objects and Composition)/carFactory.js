@@ -19,7 +19,7 @@ function carFactory(req) {
         "hatchback": {type: "hatchback", color},
         "coupe": {type: "coupe", color}
     }
-    
+
     if (power <= 90) {
         carObj.engine = engineEnum["Small engine"];
     } else if (power <= 120) {
@@ -44,16 +44,16 @@ function carFactory(req) {
     //console.log(carObj.wheels);
     //console.table(carObj);
 
-carFactory({ model: 'VW Golf II',
+console.log(carFactory({ model: 'VW Golf II',
 power: 90,
 color: 'blue',
 carriage: 'hatchback',
 wheelsize: 14 }
-)
+));
 console.log("----------------");
-carFactory({ model: 'Opel Vectra',
+console.log(carFactory({ model: 'Opel Vectra',
 power: 110,
 color: 'grey',
 carriage: 'coupe',
 wheelsize: 17 }
-)
+));

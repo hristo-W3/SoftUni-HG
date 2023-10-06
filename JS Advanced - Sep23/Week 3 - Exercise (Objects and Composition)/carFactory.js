@@ -6,11 +6,20 @@ function carFactory(req) {
     let power = req.power;
 
     if (power <= 90) {
-        carObj.engine = {power: 90, volume: 1800}
+        carObj.engine = {
+            power: 90, 
+            volume: 1800
+        }
     } else if (power <= 120) {
-        carObj.engine = {power: 120, volume: 2400}
+        carObj.engine = {
+            power: 120, 
+            volume: 2400
+        }
     } else {
-        carObj.engine = {power: 200, volume: 3500}
+        carObj.engine = {
+            power: 200, 
+            volume: 3500
+        }
     }
 
     carObj.carriage = {
@@ -25,11 +34,12 @@ function carFactory(req) {
 
     carObj.wheels = Array(4).fill(wheels)
     
-    console.log(carObj);
-    console.log(carObj.engine);
-    console.log(carObj.carriage);
-    console.log(carObj.wheels);
+    return carObj;
 }
+    //console.log(carObj);
+    //console.log(carObj.engine);
+    //console.log(carObj.carriage);
+    //console.log(carObj.wheels);
 
 carFactory({ model: 'VW Golf II',
 power: 90,

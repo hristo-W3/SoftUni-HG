@@ -32,7 +32,7 @@ function jsonToHtmlTable(json){
             '"':	"&quot;",
             " ":    "&nbsp;",
             "–":	"&ndash;",
-            "—":	"&mdash;", 
+            "—":	"&mdash;",
             "©":	"&copy;",
             "®":	"&reg;",
             "™":	"&trade;",

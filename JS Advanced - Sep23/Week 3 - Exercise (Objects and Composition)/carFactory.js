@@ -40,6 +40,7 @@ function carFactory(req) {
     //console.log(carObj.engine);
     //console.log(carObj.carriage);
     //console.log(carObj.wheels);
+    //console.table(carObj);
 
 carFactory({ model: 'VW Golf II',
 power: 90,

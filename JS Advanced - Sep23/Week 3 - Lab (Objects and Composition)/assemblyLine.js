@@ -1,6 +1,6 @@
 function createAssemblyLine() {
     return {
-        hasClima: (car) => {
+        hasClima(car) {
             car.temp = 21;
             car.tempSettings = 21;
             car.adjustTemp = () => {
@@ -11,7 +11,7 @@ function createAssemblyLine() {
                 } 
             };
         },
-        hasAudio: (car) => {
+        hasAudio(car) {
             car.currentTrack = {'name': '', 'artist': ''};
             car.nowPlaying = () => {
                 if (car.currentTrack !== null) {
@@ -19,7 +19,7 @@ function createAssemblyLine() {
                 }
             };
         },
-        hasParktronic: (car) => {
+        hasParktronic(car) {
             car.checkDistance = (distance) => {
                 if (distance < 0.1) {
                     console.log(`Beep! Beep! Beep!`);
@@ -44,7 +44,7 @@ const myCar = {
 
 assemblyLine.hasClima(myCar);
 console.log(myCar.temp);
-myCar.tempSettings = 18;
+myCar.tempSettings = 21;
 myCar.adjustTemp();
 console.log(myCar.temp);
 

@@ -1,63 +1,46 @@
 function carFactory(req) {
-    let engines = {
-        small: {
-            power: 90,
-            volume: 1800
-        },
-        normal: {
-            power: 120,
-            volume: 2400
-        },
-        monster: {
-            power: 200,
-            volume: 3500
-        }
-    }
-
-    if (req.wheelsize % 2 === 0){
-        req.wheelsize--;
-    }
-    let wheelsArr = Array(4).fill(req.wheelsize)
-    
-    let neededPower = 0;
-    let neededVolume = 0;
-    if (req.power <= engines.small.power) {
-        neededPower = engines.small.power;
-        neededVolume = engines.small.volume;
-    } else if (req.power <= engines.normal.power) {
-        neededPower = engines.normal.power;
-        neededVolume = engines.normal.volume;
-    } else {
-        neededPower = engines.monster.power;
-        neededVolume = engines.monster.volume;
-    }
-
     let carObj = {
-        model: req.model,
-        engine: {
-            power: neededPower,
-            volume: neededVolume
-        },
-        carriage: {
-            type: req.carriage,
-            color: req.color
-        },
-        wheels: wheelsArr
-    };
+        model: req.model
+    }
 
-    return carObj;
+    let power = req.power;
+
+    if (power <= 90) {
+        carObj.engine = {power: 90, volume: 1800}
+    } else if (power <= 120) {
+        carObj.engine = {power: 120, volume: 2400}
+    } else {
+        carObj.engine = {power: 200, volume: 3500}
+    }
+
+    carObj.carriage = {
+        type: req.carriage,
+        color: req.color
+    }
+
+    let wheels = req.wheelsize;
+    if (wheels % 2 === 0){
+        wheels--;
+    }
+
+    carObj.wheels = Array(4).fill(wheels)
+    
+    console.log(carObj);
+    console.log(carObj.engine);
+    console.log(carObj.carriage);
+    console.log(carObj.wheels);
 }
 
-console.log(carFactory({ model: 'VW Golf II',
+carFactory({ model: 'VW Golf II',
 power: 90,
 color: 'blue',
 carriage: 'hatchback',
 wheelsize: 14 }
-));
+)
 console.log("----------------");
-console.log(carFactory({ model: 'Opel Vectra',
+carFactory({ model: 'Opel Vectra',
 power: 110,
 color: 'grey',
 carriage: 'coupe',
 wheelsize: 17 }
-));
+)

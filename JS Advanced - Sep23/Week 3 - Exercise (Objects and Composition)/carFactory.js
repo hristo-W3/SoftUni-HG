@@ -1,38 +1,40 @@
 function carFactory(req) {
-    let carObj = {
-        model: req.model
-    }
-
+    let model = req.model;
     let power = req.power;
-
-    if (power <= 90) {
-        carObj.engine = {
-            power: 90, 
-            volume: 1800
-        }
-    } else if (power <= 120) {
-        carObj.engine = {
-            power: 120, 
-            volume: 2400
-        }
-    } else {
-        carObj.engine = {
-            power: 200, 
-            volume: 3500
-        }
-    }
-
-    carObj.carriage = {
-        type: req.carriage,
-        color: req.color
-    }
-
+    let carriage = req.carriage;
+    let color = req.color;
     let wheels = req.wheelsize;
+
+    let carObj = {};
+
+    carObj.model = model;
+
+    let engineEnum = {
+        "Small engine": { power: 90, volume: 1800 },
+        "Normal engine": { power: 120, volume: 2400 },
+        "Monster engine": { power: 200, volume: 3500 }
+    };
+
+    let carriageEnum = {
+        "hatchback": {type: "hatchback", color},
+        "coupe": {type: "coupe", color}
+    }
+    
+    if (power <= 90) {
+        carObj.engine = engineEnum["Small engine"];
+    } else if (power <= 120) {
+        carObj.engine = engineEnum["Normal engine"];
+    } else {
+        carObj.engine = engineEnum["Monster engine"];
+    }
+
+    carObj.carriage = carriageEnum[carriage];
+    
     if (wheels % 2 === 0){
         wheels--;
     }
 
-    carObj.wheels = Array(4).fill(wheels)
+    carObj.wheels = Array(4).fill(wheels);
     
     return carObj;
 }

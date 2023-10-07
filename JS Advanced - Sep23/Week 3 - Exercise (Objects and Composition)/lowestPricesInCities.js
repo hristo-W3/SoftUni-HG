@@ -6,10 +6,13 @@ function lowestPricesInCities(input) {
         price = Number(price);
 
         if (!products.hasOwnProperty(product)) {
-            products[product] = {};
+            products[product] = {
+                town,
+                price
+            };
         } 
 
-        if (products[product]["price"] === undefined || products[product]["price"] > price) {
+        if (products[product]["price"] > price) {
             products[product]["town"] = town;
             products[product]["price"] = price;
         }

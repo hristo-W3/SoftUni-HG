@@ -40,7 +40,7 @@ function solve() {
       let sum = 0;
       workers.forEach(worker => {
          let [name,salary] = worker.split(" ");
-         sum+= Number(salary);
+         return sum+= Number(salary);
       })
       return sum / workers.length;
    }

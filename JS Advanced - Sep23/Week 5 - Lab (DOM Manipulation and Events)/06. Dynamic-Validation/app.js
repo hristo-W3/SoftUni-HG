@@ -11,6 +11,4 @@ function validate() {
             inputElement.className = "error";
         }
     }
-
-
 }

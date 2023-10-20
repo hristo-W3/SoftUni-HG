@@ -1,4 +1,4 @@
-function solution() {
+function solve() {
     const recipes = {
         apple: {carbohydrate: 1, flavour: 2},
         lemonade: {carbohydrate: 10, flavour: 20},
@@ -50,7 +50,7 @@ function solution() {
     return manage;
 }
 
-let manager = solution();
+let manager = solve();
 console.log(manager('prepare turkey 1'));
 console.log(manager('restock protein 10'));
 console.log(manager('prepare turkey 1'));

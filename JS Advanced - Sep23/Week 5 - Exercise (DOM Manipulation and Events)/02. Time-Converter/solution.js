@@ -1,31 +1,37 @@
 function attachEventsListeners() {
+    const daysElement = document.getElementById('days');
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
 
-    const buttonRef = Array.from(document.querySelectorAll("input[type=button]"));
-    const inputs = Array.from(document.querySelectorAll("input[type=text"));
+    document.getElementById("daysBtn").addEventListener("click", onConvertClick);
+    document.getElementById("hoursBtn").addEventListener("click", onConvertClick);
+    document.getElementById("minutesBtn").addEventListener("click", onConvertClick);
+    document.getElementById("secondsBtn").addEventListener("click", onConvertClick);
 
-    buttonRef.forEach(button => button.addEventListener("click", onClickHandler));
+    const ratios = {
+        days: 1,
+        hours: 24,
+        minutes: 1440,
+        seconds: 86400
+    }
 
-    function onClickHandler(event) {
-        let value = Number(event.target.parentElement.children[1].value);
-        let unit = event.target.parentElement.children[1].id;
-
-        switch(unit){
-            case "days": propagateValue(value); break;
-            case "hours": propagateValue(value / 24); break;
-            case "minutes": propagateValue(value / 24 / 60); break;
-            case "seconds": propagateValue(value / 24 / 60 / 60); break;
-            default: break;
+    function convert(value, unit) {
+        let days = value / ratios[unit];
+        return {
+            days: days,
+            hours: days * ratios.hours,
+            minutes: days * ratios.minutes,
+            seconds: days * ratios.seconds
         }
     }
 
-    function propagateValue(value) {
-        inputs[0].value = value;
-        let currentValue = value * 24;
-
-        for (let i = 1; i < inputs.length; i++) {
-            let input = inputs[i];
-            input.value = currentValue;
-            currentValue *= 60;
-        }
+    function onConvertClick(ev) {
+        const input = ev.target.parentElement.querySelector('input[type="text"]');
+        const time = convert(Number(input.value), input.id);
+        daysElement.value = time.days;
+        hoursElement.value = time.hours;
+        minutesElement.value = time.minutes;
+        secondsElement.value = time.seconds;
     }
 }

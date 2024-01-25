@@ -1,4 +1,4 @@
-function orbit(arr){
+function solve(arr){
     let rows = arr[0];
     let cols = arr[1];
     let pointX = arr[2]
@@ -18,3 +18,9 @@ function orbit(arr){
 
     console.log(orbitMatrix.map(rows => rows.join(' ')).join('\n'));
 }
+
+solve([4, 4, 0, 0])
+console.log('-------------');
+solve([5, 5, 2, 2])
+console.log('-------------');
+solve([3, 3, 2, 2])

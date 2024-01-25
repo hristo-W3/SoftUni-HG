@@ -1,4 +1,4 @@
-function spiralMatrix(row,col){
+function solve(row,col){
     let result = [];
     let counter = 1;
     let startCol = 0;
@@ -34,3 +34,7 @@ function spiralMatrix(row,col){
     }
   result = result.forEach(row => console.log(row.join(' ')));
 }
+
+solve(5,5)
+console.log('------------');
+solve(3,3)

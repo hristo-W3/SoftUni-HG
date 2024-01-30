@@ -5,21 +5,20 @@ function solve(input) {
     // for every line of input
     for (let line of input) {
         // - parse line
-        const tokens = line.split(' <-> ');
-        const name = tokens[0];
-        const pop = Number(tokens[1])
-        // - if city exists, add population, otherwise, create new record
-        //if (name in result){
-        if (result.hasOwnProperty(name)){
-            result[name] += pop;
-        } else {
-            result[name] = pop;
+        const [name, pop] = line.split(' <-> ');
+
+        // if city does not exist, add it to the object
+        if (result.hasOwnProperty(name) == false) {
+            result[name] = 0;
         }
+
+        // add the population 'pop' for city 'name'
+        result[name] += Number(pop);
     }
 
     // print result
-    for (const name in result) {
-        console.log(name, ":", result[name]);
+    for (let [name, population] of Object.entries(result)) {
+        console.log(name, ":", population);
     }
 }
 

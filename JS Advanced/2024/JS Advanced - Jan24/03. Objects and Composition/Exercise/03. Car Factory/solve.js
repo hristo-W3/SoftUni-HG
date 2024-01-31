@@ -30,8 +30,9 @@ function solve(order) {
     if (order.wheelsize % 2 == 0) {
         order.wheelsize--;
     }
+    let wheelsize = order.wheelsize % 2 === 0 ? order.wheelsize - 1 : order.wheelsize;
 
-    carObj.wheels = Array(4).fill(order.wheelsize);
+    carObj.wheels = Array(4).fill(wheelsize);
     
 
     return carObj;

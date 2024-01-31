@@ -47,3 +47,9 @@ function jsonToHtmlTable(json){
 
     console.log(outputArr.join('\n'));
 }
+
+jsonToHtmlTable(`[{"Name":"Stamat",
+"Score":5.5},
+{"Name":"Rumen",
+"Score":6}]`
+)

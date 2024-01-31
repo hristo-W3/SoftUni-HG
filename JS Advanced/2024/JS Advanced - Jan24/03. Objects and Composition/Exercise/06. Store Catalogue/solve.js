@@ -1,5 +1,14 @@
 function solve(input) {
-    
+    input.sort((a, b) => a.localeCompare(b))
+    let letter = '';
+    for(let i of input){
+        if(letter !== i[0]){
+            letter = i[0]
+            console.log(letter);
+        }
+        line = i.split(' : ').join(': ');
+        console.log('  ' + line);
+    }
 }
 
 solve(['Appricot : 20.4',

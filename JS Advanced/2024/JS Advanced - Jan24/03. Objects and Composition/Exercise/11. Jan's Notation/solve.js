@@ -27,3 +27,25 @@ function solve(input) {
         console.log(operands[0]);
     }
 }
+
+solve([3,
+    4,
+    '+']
+   )
+console.log('---------------------');
+solve([5,
+    3,
+    4,
+    '*',
+    '-']
+   )
+console.log('---------------------');
+solve([7,
+    33,
+    8,
+    '-']
+   )
+console.log('---------------------');
+solve([15,
+    '/']
+   )

@@ -9,4 +9,7 @@ function extractText() {
     
     const textArea = document.getElementById('result');
     textArea.value = result.join('\n');
+
+    // Alternative one line solver
+    // document.getElementById('result').value = [...document.getElementById('items').children].map(e => e.textContent).join('\n');
 }

@@ -8,6 +8,8 @@ function deleteByEmail() {
         if (row.children[1].textContent == input.value) {
             row.remove();
             success = true;
+
+            input.value = '';
         }
     }
 

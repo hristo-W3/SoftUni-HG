@@ -16,6 +16,6 @@ function create(words) {
    function onClickHandler(e) {
       let divRef = e.currentTarget;
       let pRef = divRef.children[0];
-      pRef.style.display = "block";
+      pRef.style.display = pRef.style.display === "none" ? "block" : "none";
    }
 }

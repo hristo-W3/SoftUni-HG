@@ -4,10 +4,16 @@ function attachEventsListeners() {
     const minutesElement = document.getElementById('minutes');
     const secondsElement = document.getElementById('seconds');
 
-    document.getElementById("daysBtn").addEventListener("click", onConvertClick);
-    document.getElementById("hoursBtn").addEventListener("click", onConvertClick);
-    document.getElementById("minutesBtn").addEventListener("click", onConvertClick);
-    document.getElementById("secondsBtn").addEventListener("click", onConvertClick);
+    const buttons = Array.from(document.querySelectorAll('input[type="button"]'));
+
+    for (let btn of buttons) {
+        btn.addEventListener("click",onConvertClick);
+    }
+
+    // document.getElementById("daysBtn").addEventListener("click", onConvertClick);
+    // document.getElementById("hoursBtn").addEventListener("click", onConvertClick);
+    // document.getElementById("minutesBtn").addEventListener("click", onConvertClick);
+    // document.getElementById("secondsBtn").addEventListener("click", onConvertClick);
 
     const ratios = {
         days: 1,

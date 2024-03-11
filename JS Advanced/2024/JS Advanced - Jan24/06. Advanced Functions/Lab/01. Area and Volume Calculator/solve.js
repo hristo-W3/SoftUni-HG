@@ -5,8 +5,17 @@ function solve(areaFn, volFn, input) {
             area: areaFn.call(fig),
             volume: volFn.call(fig)
         }));
-    
+
     return result;
+
+    /* const result = [];
+
+    for (let fig of data) {
+        result.push({
+            area: areaFn.call(fig),
+            volume: volFn.call(fig)
+        })
+    }*/    
 }
 
 const data1 = `[

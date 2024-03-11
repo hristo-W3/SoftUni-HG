@@ -1,14 +1,11 @@
 function solve(areaFn, volFn, input) {
     const data = JSON.parse(input);
 
-    const result = [];
-
-    for (let fig of data) {
-        result.push({
+    const result = data.map(fig => ({
             area: areaFn.call(fig),
             volume: volFn.call(fig)
-        })
-    }
+        }));
+    
     return result;
 }
 
@@ -26,8 +23,8 @@ const data2 = `[
     {"x":"55","y":"80","z":"250"}
     ]`;
 
-solve(area, vol, data1);
-solve(area, vol, data2);
+console.log(solve(area, vol, data1));
+console.log(solve(area, vol, data2));
 
 function area() {
     return Math.abs(this.x * this.y);

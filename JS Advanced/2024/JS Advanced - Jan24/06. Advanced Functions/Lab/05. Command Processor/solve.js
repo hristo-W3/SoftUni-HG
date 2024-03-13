@@ -1,4 +1,4 @@
-function solution() {
+function solve() {
     let status = '';
 
     function append(string) {
@@ -25,7 +25,7 @@ function solution() {
     }
 }
 
-let firstZeroTest = solution();
+let firstZeroTest = solve();
 
 firstZeroTest.append('hello');
 firstZeroTest.append('again');
@@ -34,7 +34,7 @@ firstZeroTest.removeEnd(4);
 firstZeroTest.print();
 
 
-let secondZeroTest = solution();
+let secondZeroTest = solve();
 
 secondZeroTest.append('123');
 secondZeroTest.append('45');

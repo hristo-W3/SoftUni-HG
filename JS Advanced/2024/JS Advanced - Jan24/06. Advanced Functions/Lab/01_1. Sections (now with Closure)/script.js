@@ -1,21 +1,18 @@
 function create(words) {
-   const contentRef = document.getElementById("content");
-
+   const container = document.getElementById('content')
    for (let word of words) {
-      let divRef = document.createElement("div");
-      let pRef = document.createElement("p");
-      pRef.style.display = "none";
-      pRef.textContent = word;
+      const div = document.createElement('div');
+      const p = document.createElement('p');
+      p.textContent = word;
+      p.style.display = 'none';
+      div.appendChild(p);
+      container.appendChild(div);
 
-      divRef.addEventListener("click", onClickHandler);
+      div.addEventListener('click', show);
 
-      divRef.appendChild(pRef);
-      contentRef.appendChild(divRef);
-   }
-
-   function onClickHandler(e) {
-      let divRef = e.currentTarget;
-      let pRef = divRef.children[0];
-      pRef.style.display = pRef.style.display === "none" ? "block" : "none";
+      function show() {
+         p.style.display = p.style.display == "none" ? "block" : "none";
+      }
    }
 }
+

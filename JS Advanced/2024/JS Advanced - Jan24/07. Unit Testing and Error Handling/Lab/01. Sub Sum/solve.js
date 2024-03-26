@@ -1,11 +1,17 @@
 function subSum(arr, startIndex, endIndex) {
-    if (!Array.isArray(arr)) return NaN;
-    startIndex = startIndex >= 0 ? startIndex : 0
-    endIndex = endIndex < 0 ? 0 :
-        (arr.length - 1 < endIndex) ? arr.length - 1
-            : endIndex;
+    if (!Array.isArray(arr)) {
+        return NaN;
+    }
+    if (startIndex < 0) {
+        startIndex = 0;
+    }
 
-    return arr.slice(startIndex, endIndex + 1)
+    if (endIndex >= arr.length) {
+        endIndex = arr.length - 1;
+    }
+
+    return arr
+        .slice(startIndex, endIndex + 1)
         .map(n => Number(n))
         .reduce((acc, n) => acc + n, 0);
 }
